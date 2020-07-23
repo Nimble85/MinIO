@@ -1,0 +1,29 @@
+version: '2'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  minio:
+    build: .
+    ports:
+      - '9000:9000'
+    environment:
+      - MINIO_ACCESS_KEY=admin_admin
+      - MINIO_SECRET_KEY=admin_admin
+      - MINIO_DEFAULT_BUCKETS='my-first-bucket:policy,my-second-bucket'
+#    volumes:
+      # - data:/datastorage
+    networks:
+      - app-tier
+ 
+  jenkins:
+    image: 'nimble85/jenkins:v01'
+    ports:
+      - '8081:8080'
+    networks:
+      - app-tier
+    environment:
+      - MINIO_SERVER_ACCESS_KEY=admin_admin
+      - MINIO_SERVER_SECRET_KEY=admin_admin

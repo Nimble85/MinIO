@@ -13,11 +13,29 @@ services:
       - MINIO_ACCESS_KEY=admin_admin
       - MINIO_SECRET_KEY=admin_admin
       - MINIO_DEFAULT_BUCKETS='my-first-bucket:policy,my-second-bucket'
+      - MINIO_VOLUMES="/usr/local/share/minio/"
+      - MINIO_OPTS="-C /etc/minio --address 172.18.0.3:9000"
 #    volumes:
-      # - data:/datastorage
+      # - data:/usr/local/share/minio/
     networks:
       - app-tier
- 
+#
+#  minio_client:
+#    build: .Dockerfile_mc
+#    ports:
+#      - '9000:9000'
+#    environment:
+#      - MINIO_ACCESS_KEY=admin_admin
+#      - MINIO_SECRET_KEY=admin_admin
+#      - MINIO_DEFAULT_BUCKETS='my-first-bucket:policy,my-second-bucket'
+#      - MINIO_VOLUMES="/usr/local/share/minio/"
+#      - MINIO_OPTS="-C /etc/minio --address 172.18.0.3:9000"
+#      #    volumes:
+#      # - data:/usr/local/share/minio/
+#    networks:
+#      - app-tier
+
+
   jenkins:
     image: 'nimble85/jenkins:v01'
     ports:

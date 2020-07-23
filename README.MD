@@ -25,4 +25,5 @@ mc rm minio/bigbucket/Dockerfile.arm  minio/bigbucket/Dockerfile.arm64
 ````
  mc cp winstone3732789767546353884.jar minio/test002/
  mc cp --recursive hsperfdata_root minio/test002
+ mc cp --recursive ../${JOB_NAME} minio/test-bucket002
 ````

@@ -1,9 +1,18 @@
 FROM ubuntu:latest
+ARG AccessKeyID = admin_admin
+ARG SecretAccessKey = admin_admin
+ARG MinioServer = http://192.168.1.51:9000
 # Just an example
 # It is need to install on client machine
 # https://docs.min.io/docs/minio-client-quickstart-guide.html
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc && chmod +x mc
 RUN export PATH=/bin/
+
+# configure client
+RUN mc config host add minio ${MinioServer} ${AccessKeyID} ${SecretAccessKey}
+# Or just copy config file
 COPY congig.json /root/.mc/congig.json
 
 
+mc config host add minio 10.130.33.253:9000 admin_admin admin_admin
+mc config host add minio http://localhost:9000 admin_admin admin_admin

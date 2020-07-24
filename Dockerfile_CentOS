@@ -1,8 +1,10 @@
 FROM centos:centos7.8.2003
 
-RUN yum update -y && yum install wget
+RUN yum update -y && yum install wget -y
 RUN wget https://dl.min.io/server/minio/release/linux-amd64/minio && chmod +x minio
+ENV MINIO_UPDATE off
+ENV MINIO_ACCESS_KEY admin_admin
+ENV MINIO_SECRET_KEY admin_admin
+
 EXPOSE 9000
-CMD ["./minio", "server", "/data"]
-
-
+ENTRYPOINT ["./minio", "server", "/data"]

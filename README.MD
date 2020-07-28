@@ -18,7 +18,7 @@ MINIO_SECRET_KEY_FILE="/etc/minio/secret_key"
 * https://github.com/minio/minio-service/tree/master/linux-systemd
 
 
-#MinIO Client
+# MinIO Client
 
 For the first configure client, run the command:
 

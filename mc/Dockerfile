@@ -11,8 +11,8 @@ RUN export PATH=/bin/
 # configure client
 RUN mc config host add minio ${MinioServer} ${AccessKeyID} ${SecretAccessKey}
 # Or just copy config file
-COPY congig.json /root/.mc/congig.json
+COPY config.json /root/.mc/congig.json
 
 #For example:
-# mc config host add minio 10.130.33.253:9000 admin_admin admin_admin
-# mc config host add minio http://localhost:9000 admin_admin admin_admin
+# mc config host add minio http://10.130.33.253:9000 admin_admin admin_admin
+# mc config host add minigit o http://localhost:9000 admin_admin admin_admin

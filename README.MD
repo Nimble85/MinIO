@@ -20,11 +20,22 @@ MINIO_SECRET_KEY_FILE="/etc/minio/secret_key"
 
 #MinIO Client
 
+For the first configure client, run the command:
+
+````
+mc config host add minio ${MinioServer} ${AccessKeyID} ${SecretAccessKey}
+````
+For example:
+
+* mc config host add minio http://10.130.33.253:9000 admin_admin admin_admin
+* mc config host add minio http://localhost:9000 admin_admin admin_admin
+
 ### Inspect remote sources
 
 ```bash
 mc ls minio
 mc ls minio/bigbucket
+mc tree -d 1 minio
 ```
 
 ### Create remote buckets:

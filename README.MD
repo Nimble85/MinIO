@@ -30,6 +30,12 @@ For example:
 * mc config host add minio http://10.130.33.253:9000 admin_admin admin_admin
 * mc config host add minio http://localhost:9000 admin_admin admin_admin
 
+
+Or uses docker:
+```
+docker run -it --entrypoint=/usr/bin/mc minio/mc config host add test001 http://localhost:9000/ ${AccessKeyID} ${SecretAccessKey}
+```
+
 ### Inspect remote sources
 
 ```bash

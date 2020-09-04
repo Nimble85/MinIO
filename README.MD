@@ -44,6 +44,16 @@ mc ls minio/bigbucket
 mc tree -d 1 minio
 ```
 
+## Сontinue add some more configurations:
+
+```bash
+cat ~/.mc/config.json
+```
+
+
+
+
+
 ### Create remote buckets:
 
 ``bash

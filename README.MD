@@ -53,7 +53,7 @@ cat ~/.mc/config.json
 
 
 ```
-mcli admin info minio
+mc admin info minio
 ```
 
 ### Create remote buckets:

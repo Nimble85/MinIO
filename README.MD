@@ -70,7 +70,7 @@ mc rm minio/bigbucket/Dockerfile.arm  minio/bigbucket/Dockerfile.arm64
 ```
 ### Remove remote bucket:
 ```
-mc rm --force minio/nameofbucket
+mc rb --force minio/nameofbucket
 ```
 
 ### Copy to remote bucket

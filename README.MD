@@ -68,6 +68,10 @@ mc mb minio/test-bucket001
 mc rm minio/bigbucket/Dockerfile
 mc rm minio/bigbucket/Dockerfile.arm  minio/bigbucket/Dockerfile.arm64
 ```
+### Remove remote bucket:
+```
+mc rm --force minio/nameofbucket
+```
 
 ### Copy to remote bucket
 

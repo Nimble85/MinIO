@@ -1,0 +1,17 @@
+}
+stage('Check Availability NGINX page') {
+timeout(time: 10, unit: 'SECONDS') {
+stage('Check Availability') {
+script {
+waitUntil {
+try {
+sh "curl -s --head --request GET localhost:8080 | grep '200'"
+return true
+} catch (Exception e) {
+return false
+}
+}
+}
+}
+}
+}

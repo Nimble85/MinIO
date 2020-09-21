@@ -5,8 +5,8 @@
 
     "minio": {
       "url": "http://172.18.0.3:9000",
-      "accessKey": "admin_admin",
-      "secretKey": "admin_admin",
+      "accessKey": "8zp2e4uEvgBoKruR",
+      "secretKey": "RM3YFx51XEYTZ9g2",
       "api": "S3v4",
       "lookup": "auto"
     },

@@ -54,13 +54,37 @@ cat ~/.mc/config.json
 
 ```
 mc admin info minio
+
+mc admin policy list minio
+```
+```
+mc admin user add minio/ minio-user minio-user
+```
+# Works with policies:
+
+* Create a new user "developer"
+```
+mc admin user add minio/ developer DTHgOruTYjc19AHq
+```
+* Create new group "developers" and add user "developer" to this group
+```
+mc admin group add minio developers developer
+```
+* Import new policy in minio
+
+```
+mc admin policy add minio dev developers.json
+```
+* Apply policy "dev" to group "developers"
+```
+mc admin policy set minio dev group=developers
 ```
 
 ### Create remote buckets:
 
-``bash
+```bash
 mc mb minio/test-bucket001
-``
+```
 
 ### Remove file:
 

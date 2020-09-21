@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:s3:::generated/*",
+        "arn:aws:s3:::translated/*",
+        "arn:aws:s3:::translated-synth/*",
+        "arn:aws:s3:::xml-synth/*",
+        "arn:aws:s3:::xml/*"
+      ]
+    },
+         {
+           "Action": [
+             "s3:PutObject",
+             "s3:DeleteObject"
+           ],
+           "Effect": "Deny",
+           "Resource": [
+             "arn:aws:s3:::translated/*"
+           ]
+         }
+  ]
+}

@@ -1,10 +1,21 @@
 FROM centos:centos7.8.2003
 
+ENV SecretAccessKey 8zp2e4uEvgBoKruR
+ENV AccessSecretKeyID RM3YFx51XEYTZ9g2
+#ARG MinioServer http://localhost:9000
+
+
 RUN yum update -y && yum install wget -y
-RUN wget https://dl.min.io/server/minio/release/linux-amd64/minio && chmod +x minio
+RUN wget https://dl.min.io/server/minio/release/linux-amd64/minio && chmod +x minio && mv minio /bin/minio
 ENV MINIO_UPDATE off
-ENV MINIO_ACCESS_KEY admin_admin
-ENV MINIO_SECRET_KEY admin_admin
+ENV MINIO_ACCESS_KEY ${SecretAccessKey}
+ENV MINIO_SECRET_KEY ${AccessSecretKeyID}
+#COPY mc/config.json /root/.mc/config.json
+#Install and configure Minio Client:
+RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc && chmod +x mc && mv mc /bin/mc  && \
+    minio config host add minio ${MinioServer} ${SecretAccessKey} ${AccessSecretKeyID} && \
+    mc ls minio && mc mb minio/test-bucket001 && mc mb minio/test-bucket002 && mc mb minio/test-bucket003
+
 
 EXPOSE 9000
-ENTRYPOINT ["./minio", "server", "/data"]
+ENTRYPOINT ["minio", "server", "/data"]

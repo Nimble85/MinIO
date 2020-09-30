@@ -92,6 +92,21 @@ mc mb minio/test-bucket001
 mc rm minio/bigbucket/Dockerfile
 mc rm minio/bigbucket/Dockerfile.arm  minio/bigbucket/Dockerfile.arm64
 ```
+#IMPORTANT:
+
+- If you will be use --recursive flag, it will be remove al directory which connect with the name. For example:
+```
+mcli rm --recursive --force minio/translated/2
+```
+Remove all directories which name in this path start from 2! It`s seems like:
+```
+mcli rm --recursive --force minio/translated/2
+mcli rm --recursive --force minio/translated/21
+mcli rm --recursive --force minio/translated/28
+mcli rm --recursive --force minio/translated/2232
+mcli rm --recursive --force minio/translated/2qws1
+```
+
 ### Remove remote bucket:
 ```
 mc rb --force minio/nameofbucket

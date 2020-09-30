@@ -92,7 +92,7 @@ mc mb minio/test-bucket001
 mc rm minio/bigbucket/Dockerfile
 mc rm minio/bigbucket/Dockerfile.arm  minio/bigbucket/Dockerfile.arm64
 ```
-# IMPORTANT:
+color.Red("IMPORTANT")# IMPORTANT:
 
 - If you will be use --recursive flag, it will be remove al directory which connect with the name. For example:
 ```

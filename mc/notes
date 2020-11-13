@@ -1,8 +1,10 @@
 List of path where is store config.json
++   ./root/.mcli/config.json
 
-./var/lib/jenkins/.mcli/config.json
-./root/.mc/config.json
-./root/.mcli/config.json
-./home/centos/.mc/config.json
-./date/.minio.sys/config/config.json
-./date/minio/.minio.sys/config/config.json
++   ./var/lib/jenkins/.mcli/config.json
+
+
+-./root/.mc/config.json
+-./home/centos/.mc/config.json
+-./date/.minio.sys/config/config.json
+-./date/minio/.minio.sys/config/config.json

@@ -8,6 +8,8 @@ minio server --address :9000 /date
 ``
 ### Minio server variables:
 
+- vim /etc/default/minio
+
 ```
 MINIO_VOLUMES="/usr/local/share/minio"
 MINIO_OPTS="-C /etc/minio --address :9000"
@@ -119,3 +121,10 @@ mc rb --force minio/nameofbucket
  mc cp --recursive hsperfdata_root minio/test002
  mc cp --recursive ../${JOB_NAME} minio/test-bucket002
 ````
+
+### Some tips
+```
+mcli admin bucket --json info
+mcli admin --json info minio
+
+```
